@@ -3,92 +3,53 @@ package com.javalec.dto;
 import java.sql.Timestamp;
 
 public class loginDTO {
-	int bId;
-	String bName;
-	String bTitle;
-	String bContent;
-	Timestamp bDate;
+	String id;
+	String password;
+	String name;
 	
-	public loginDTO(String retrievedBName, String retrievedBTitle, String retrievedBContent, int bld1) {
+	public loginDTO() {
+		
 		
 	}
-	
-	
-	
-	
 
-	public loginDTO(String bName, String bTitle, String bContent, Timestamp bDate) {
+	public loginDTO(String id, String password, String name) {
 		super();
-		this.bName = bName;
-		this.bTitle = bTitle;
-		this.bContent = bContent;
-		this.bDate = bDate;
+		this.id = id;
+		this.password = password;
+		this.name = name;
 	}
 
+	public String getId() {
+		return id;
+	}
 
+	public void setId(String id) {
+		this.id = id;
+	}
 
+	public String getPassword() {
+		return password;
+	}
 
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-	public loginDTO(int bId, String bName, String bTitle, String bContent) {
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public loginDTO(String name) {
 		super();
-		this.bId = bId;
-		this.bName = bName;
-		this.bTitle = bTitle;
-		this.bContent = bContent;
-	}
-
-
-
-
-
-	public loginDTO(int bId, String bName, String bTitle, String bContent, Timestamp bDate) {
-		super();
-		this.bId = bId;
-		this.bName = bName;
-		this.bTitle = bTitle;
-		this.bContent = bContent;
-		this.bDate = bDate;
-	}
-
-	public int getbId() {
-		return bId;
-	}
-
-	public void setbId(int bId) {
-		this.bId = bId;
-	}
-
-	public String getbName() {
-		return bName;
-	}
-
-	public void setbName(String bName) {
-		this.bName = bName;
-	}
-
-	public String getbTitle() {
-		return bTitle;
-	}
-
-	public void setbTitle(String bTitle) {
-		this.bTitle = bTitle;
-	}
-
-	public String getbContent() {
-		return bContent;
-	}
-
-	public void setbContent(String bContent) {
-		this.bContent = bContent;
-	}
-
-	public Timestamp getbDate() {
-		return bDate;
-	}
-
-	public void setbDate(Timestamp bDate) {
-		this.bDate = bDate;
+		this.name = name;
 	}
 	
+	
+
+
 
 }

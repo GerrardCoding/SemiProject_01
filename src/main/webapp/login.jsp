@@ -101,11 +101,11 @@
                     <td><input type="password" id="PW" name="PW"></td>
                 </tr>
             </table>
-            <input type="button" value="로그인">
+            <input type="submit" value="로그인">
         </form>
         <div class="form-switch">
             <span>아직 회원이 아니신가요? </span>
-            <input type="button" value="회원가입">
+            <input type="submit" value="회원가입">
         </div>
     </div>
 </body>

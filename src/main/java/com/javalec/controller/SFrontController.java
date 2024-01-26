@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.javalec.command.SCommand;
+import com.javalec.command.loginCommand;
 
 /**
  * Servlet implementation class SFrontController
@@ -71,17 +72,28 @@ public class SFrontController extends HttpServlet {
 		switch(com) {
 		case("/login.do"):
 //			session.setAttribute("test", "aaa");//세션 사용은 이렇
-			command.execute(request, response);
+			//command.execute(request, response);
 			viewPage ="login.jsp";
 			break;
-		default:
-			break;
-		
-		
-		}
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
-		dispatcher.forward(request, response);
-	}//actiondo
+		case("/logintest.do"):
+			 command = new loginCommand();
+        	command.execute(request, response);
 
+        // The loginCommand has set attributes or forwarded appropriately
+        // No need to forward again here
+
+        // If you want to redirect after a successful login, you can do it here
+        String redirectURL = (String) request.getAttribute("redirectURL");
+        if (redirectURL != null) {
+            response.sendRedirect(redirectURL);
+            return; // Important to avoid forwarding after redirect
+        }
+        break;
+    default:
+        break;
+}
+
+RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
+dispatcher.forward(request, response);
+}
 }
