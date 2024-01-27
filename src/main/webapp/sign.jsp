@@ -51,7 +51,7 @@
                         <h2>회원가입</h2>
                     </div>
                     <div class="card-body">
-                        <form name="loginForm" action="sign.do" method="post">
+                        <form name="loginForm" action="signInsert.do" method="post">
                             <div class="form-group">
                                 <label for="id">아이디:</label>
                                 <input type="text" class="form-control" id="id" name="id" required>

@@ -17,7 +17,7 @@ public class sign_Dao_JM {
 	public sign_Dao_JM() {
 		try {
 			Context context = new InitialContext();
-			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/semi_project"); // context 파일 위치
+			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/semiproject_01"); // context 파일 위치
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -32,7 +32,7 @@ public class sign_Dao_JM {
 		
 		try {
 			connection = dataSource.getConnection();
-			String query = "INSERT INTO customer (id, pw, name, date) VALUES (?, ?, ?, NOW());";
+			String query = "INSERT INTO customer (id, pw, name, active) VALUES (?, ?, ?, NOW());";
 			preparedStatement =connection.prepareStatement(query);
 			preparedStatement.setString(1, id);
 			preparedStatement.setString(2, pw);
