@@ -68,11 +68,25 @@ public class SFrontController extends HttpServlet {
 		System.out.println(conPath);
 		String com = uri.substring(conPath.length());
 		System.out.println(com);
+		
 		switch(com) {
-		case("/login.do"):
+		case("/login.do"): // 로그인 페이지
 //			session.setAttribute("test", "aaa");//세션 사용은 이렇
-			command.execute(request, response);
+//			command = new BListCommand();
+//			command.execute(request, response);
 			viewPage ="login.jsp";
+			break;
+		case("/sign.do"): // 회원 가입 페이지
+//			command.execute(request, response);
+			viewPage ="sign.jsp";
+			break;
+		case("/admin.do"): // 관리자 페이지
+//			command.execute(request, response);
+			viewPage ="admin.jsp";
+			break;
+		case("/main.do"): // 메인 페이지
+//			command.execute(request, response);
+			viewPage ="main.jsp";
 			break;
 		default:
 			break;
