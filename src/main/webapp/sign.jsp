@@ -58,7 +58,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="passwd">패스워드:</label>
-                                <input type="password" class="form-control" id="passwd" name="passwd" required>
+                                <input type="password" class="form-control" id="passwd" name="pw" required>
                             </div>
                             <div class="form-group">
                                 <label for="name">성명:</label>
