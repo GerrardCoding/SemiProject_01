@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.javalec.command.SCommand;
-import com.javalec.command.loginCommand;
+import com.javalec.command.SsignInsertCommand;
 
 /**
  * Servlet implementation class SFrontController
@@ -69,31 +69,39 @@ public class SFrontController extends HttpServlet {
 		System.out.println(conPath);
 		String com = uri.substring(conPath.length());
 		System.out.println(com);
+		
 		switch(com) {
-		case("/login.do"):
+		case("/login.do"): // 로그인 페이지
 //			session.setAttribute("test", "aaa");//세션 사용은 이렇
-			//command.execute(request, response);
+//			command = new BListCommand();
+//			command.execute(request, response);
 			viewPage ="login.jsp";
 			break;
-		case("/logintest.do"):
-			 command = new loginCommand();
-        	command.execute(request, response);
+		case("/sign.do"): // 회원 가입 페이지
+			viewPage ="sign.jsp";
+			break;
+		case("/signInsert.do"):
+			command = new SsignInsertCommand();
+			command.execute(request, response);
+			viewPage = "login.do";
+			break;
+		case("/admin.do"): // 관리자 페이지
+//			command.execute(request, response);
+			viewPage ="admin.jsp";
+			break;
+		case("/main.do"): // 메인 페이지
+//			command.execute(request, response);
+			viewPage ="main.jsp";
+			break;
+		
+		default:
+			break;
+		
+		
+		}
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
+		dispatcher.forward(request, response);
+	}//actiondo
 
-        // The loginCommand has set attributes or forwarded appropriately
-        // No need to forward again here
-
-        // If you want to redirect after a successful login, you can do it here
-        String redirectURL = (String) request.getAttribute("redirectURL");
-        if (redirectURL != null) {
-            response.sendRedirect(redirectURL);
-            return; // Important to avoid forwarding after redirect
-        }
-        break;
-    default:
-        break;
-}
-
-RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
-dispatcher.forward(request, response);
-}
 }
