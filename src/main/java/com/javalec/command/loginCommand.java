@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.javalec.dto.adminDTO;
 import com.javalec.dto.loginDTO;
+import com.javalec.dao.adminDAO;
 import com.javalec.dao.loginDAO;
 
 public class loginCommand implements SCommand {
@@ -18,33 +20,43 @@ public class loginCommand implements SCommand {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		  try {
-	            String id = request.getParameter("id");
-	            String pw = request.getParameter("pw");
+	            String id = request.getParameter("ID");
+	            String pw = request.getParameter("PW");
 
-	            loginDAO dao = new loginDAO();
-	            loginDTO user = dao.view(id, pw);
-
+	            loginDAO userdao = new loginDAO();
+	            adminDAO admindao = new adminDAO();
+	           
+	            loginDTO user = userdao.view(id, pw);
+	            com.javalec.dto.adminDTO admin = admindao.view(id, pw);
+	            
+	            
 	            if (user != null && user.getPassword().equals(pw)) {
 	                // Login successful
 	                HttpSession session = request.getSession();
 	                session.setAttribute("user", user);
-
 	                // You can set additional attributes or redirect to a specific page
-	                request.setAttribute("redirectURL", "dashboard.jsp");
-	            } else {
+	                request.setAttribute("redirectURL", "loginSuccess.jsp");
+	                System.out.println(user.getName());
+	            } else if (admin != null && admin.getPassword().equals(pw)) {
+	                // Administrator login successful
+	                HttpSession session = request.getSession();
+	                session.setAttribute("admin", admin);
+	                System.out.println(admin.getName());
+
+	                // You can set additional attributes or redirect to a specific admin page
+	                request.setAttribute("redirectURL", "loginSuccess.jsp");
+	            }
+	                // Display a success message using JavaScript alert
+	           
+	            else {
 	                // Login failed
-	                request.setAttribute("errorMessage", "Invalid login credentials");
+	                request.setAttribute("redirectURL", "loginerror.jsp");
 
 	                // Forward back to the login page with an error message
-	                RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
-	                dispatcher.forward(request, response);
 	            }
-	        } catch (ServletException | IOException e) {
-	            e.printStackTrace(); // Handle the exception as appropriate for your application
-	        }
+	        } 
 	    }
-	}
+	
 	     
 	     /*loginDAO dao = new loginDAO();
 	     ArrayList<loginDTO> dtoList = dao.confirm(id, pw);

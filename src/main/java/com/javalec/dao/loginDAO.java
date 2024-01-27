@@ -108,7 +108,7 @@ public class loginDAO {
 
 	        try {
 	            connection = dataSource.getConnection();
-	            String query = "SELECT id, pw, name FROM semiproject_01 WHERE id = ? AND pw = ?";
+	            String query = "SELECT id, pw, name FROM customer WHERE id = ? AND pw = ?";
 	            preparedStatement = connection.prepareStatement(query);
 	            preparedStatement.setString(1, id);
 	            preparedStatement.setString(2, pw);
