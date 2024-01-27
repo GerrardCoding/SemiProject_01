@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String s_id = (String)session.getAttribute("s_id");
+	String menu = request.getParameter("menu");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,16 +19,6 @@
     <%
     	if(menu == null){
     %>
-    <!-- ============================= [[ Carousel section]] ============================= -->
-
-	<%-- <jsp:include page="./main/carousel.jsp" /> --%>
-
-    <!-- ============================= [[ Carousel section]] ============================= -->
-    <!-- =============================  [[ Card section ]]  ============================= -->
-
-	<%-- <jsp:include page="./main/card.jsp" /> --%>
-
-    <!-- =============================  [[ Card section ]]  ============================= -->
     <%
     	}
     	else if("menu1".equals(menu)){
@@ -45,7 +39,7 @@
  	%>
     <!-- =============================  [[ Footer section ]]  ============================= -->
 
-	<%@ include file="./main/footer.jsp" %>
+	<%@ include file="./include/footer.jsp" %>
 
     <!-- =============================  [[ Footer section ]]  ============================= -->
 </body>
