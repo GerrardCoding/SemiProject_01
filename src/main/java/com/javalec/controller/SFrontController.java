@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.javalec.command.SCommand;
 import com.javalec.command.SsignInsertCommand;
+import com.javalec.command.loginCommand;
 
 /**
  * Servlet implementation class SFrontController
@@ -93,6 +94,11 @@ public class SFrontController extends HttpServlet {
 //			command.execute(request, response);
 			viewPage ="main.jsp";
 			break;
+		case ("/logintest.do"):
+            command = new loginCommand();
+            command.execute(request, response);
+            viewPage = (String) request.getAttribute("redirectURL"); // Check if redirectURL is set
+            break;
 		
 		default:
 			break;

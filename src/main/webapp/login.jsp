@@ -103,10 +103,11 @@
             </table>
             <input type="submit" value="로그인">
         </form>
-        <div class="form-switch">
+        
+       <form action="sign.do" method="post">
             <span>아직 회원이 아니신가요? </span>
             <input type="submit" value="회원가입">
-        </div>
+  		</form>
     </div>
 </body>
 </html>
