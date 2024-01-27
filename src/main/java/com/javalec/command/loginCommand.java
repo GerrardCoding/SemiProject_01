@@ -22,7 +22,12 @@ public class loginCommand implements SCommand {
 		
 	            String id = request.getParameter("ID");
 	            String pw = request.getParameter("PW");
+	            
+	            if (id.isEmpty() || pw.isEmpty()) {
+	                // ID or PW is empty, set an attribute for error handling
+	                request.setAttribute("redirectURL", "loginerror.jsp");}
 
+	            
 	            loginDAO userdao = new loginDAO();
 	            adminDAO admindao = new adminDAO();
 	           
