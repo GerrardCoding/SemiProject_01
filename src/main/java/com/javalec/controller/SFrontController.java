@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.javalec.command.SCommand;
+import com.javalec.command.SsignInsertCommand;
 
 /**
  * Servlet implementation class SFrontController
@@ -77,8 +78,12 @@ public class SFrontController extends HttpServlet {
 			viewPage ="login.jsp";
 			break;
 		case("/sign.do"): // 회원 가입 페이지
-//			command.execute(request, response);
 			viewPage ="sign.jsp";
+			break;
+		case("/signInsert.do"):
+			command = new SsignInsertCommand();
+			command.execute(request, response);
+			viewPage = "login.do";
 			break;
 		case("/admin.do"): // 관리자 페이지
 //			command.execute(request, response);
@@ -88,6 +93,7 @@ public class SFrontController extends HttpServlet {
 //			command.execute(request, response);
 			viewPage ="main.jsp";
 			break;
+		
 		default:
 			break;
 		
