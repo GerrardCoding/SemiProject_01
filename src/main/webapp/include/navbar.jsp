@@ -5,7 +5,7 @@
 	    function main() {
 	        document.getElementById("toMain").submit();
     }
-</script>
+	</script>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#" onclick="main()">신발 가게</a>
@@ -26,13 +26,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-4 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="./main.jsp?menu=menu1">나이키</a>
+              <a class="nav-link active" aria-current="page" href="./main.jsp?menu=menu1">전체 상품</a>
             </li>
 	        <li class="nav-item">
-	          <a class="nav-link" href="./main.jsp?menu=menu2">아디다스</a>
+	          <a class="nav-link" href="./main.jsp?menu=menu2">Nike</a>
 	        </li>
 	        <li class="nav-item">
-	          <a class="nav-link" href="./main.jsp?menu=menu3">미스치프</a>
+	          <a class="nav-link" href="./main.jsp?menu=menu3">Adidas</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="./main.jsp?menu=menu4">Mschf</a>
 	        </li>
           </ul>
         </div>

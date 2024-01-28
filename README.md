@@ -20,6 +20,7 @@ DB 배포
 
 2024-01-28
 
+구매현황 작성
 R&D 함
 Bootstrap, cos.jar 파일 넣기
 

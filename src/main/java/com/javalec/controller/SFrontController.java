@@ -106,6 +106,11 @@ public class SFrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage ="productstatus.jsp";
 			break;
+		case("/purchasestatus.do"): // 구매현황 페이지(관리자)
+			command = new SPurchaseSearchCommand();
+			command.execute(request, response);
+			viewPage ="purchasestatus.jsp";
+			break;
 		default:
 			break;
 		
