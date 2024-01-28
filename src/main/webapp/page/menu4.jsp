@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>나이키 상품 정보</title>
+<title>미스치프 상품 정보</title>
 </head>
 <body>
 	<div class="container">
-	<h2>Nike</h2>
+	<h2>Mschf</h2>
 	</div>
 </body>
 </html>
