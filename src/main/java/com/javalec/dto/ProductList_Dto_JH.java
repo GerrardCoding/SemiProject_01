@@ -12,6 +12,7 @@ public class ProductList_Dto_JH {
 	int stock;
 	int price;
 	String filepath;
+	//구매현황
 	
 	// Constructor
 	public ProductList_Dto_JH() {
@@ -22,7 +23,7 @@ public class ProductList_Dto_JH {
 	    }
 	
 	 byte[] image;  // 새로 추가한 필드
-	
+	//상품현황에서 사용하는 dto
 	public ProductList_Dto_JH(String pronum, String brand, String proname, String color, int stock, int price, byte[] image) {
 		super();
 		this.pronum = pronum;
@@ -33,6 +34,7 @@ public class ProductList_Dto_JH {
 		this.price = price;
 		this.image = image; 
 	}
+	
 
 	// Method
 	public String getPronum() {

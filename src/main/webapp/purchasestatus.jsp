@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,17 +52,18 @@
                 </tr>
             </thead>
             <tbody>
+            <c:forEach items="${list}" var="dto">
                 <tr>
-                    <td>2022001</td>
-                    <td>001</td>
-                    <td>Nike</td>
-                    <td>Air Max</td>
-                    <td>White</td>
-                    <td>2</td>
-                    <td>$200</td>
-                    <td>2022-03-15</td>
+                    <td>${dto.purseq}</td>
+                    <td>${dto.pronum}</td>
+                    <td>${dto.brand}</td>
+                    <td>${dto.proname}</td>
+                    <td>${dto.color}</td>
+                    <td>${dto.purqty}</td>
+                    <td>${dto.purprice}</td>
+                    <td>${dto.purdate}</td>
                 </tr>
-                <!-- 다른 주문 정보들 추가 -->
+                </c:forEach>
             </tbody>
         </table>
     </div>

@@ -30,8 +30,8 @@
     <div class="container">
         <h1>구매현황 및 회원조회</h1>
         
-        <button class="button">구매현황</button>
-        <button class="button">회원조회</button>
+         <button class="button" onclick="location.href='purchasestatus.do';">구매현황</button>
+         <button class="button" onclick="location.href='productstatus.do';">상품현황</button>
     </div>
 </body>
 </html>
