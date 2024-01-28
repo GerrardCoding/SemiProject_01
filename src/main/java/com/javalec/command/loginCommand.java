@@ -49,7 +49,7 @@ public class loginCommand implements SCommand {
 	                System.out.println(admin.getName());
 
 	                // You can set additional attributes or redirect to a specific admin page
-	                request.setAttribute("redirectURL", "loginSuccess.jsp");
+	                request.setAttribute("redirectURL", "adminSuccess.jsp");
 	            }
 	                // Display a success message using JavaScript alert
 	           
