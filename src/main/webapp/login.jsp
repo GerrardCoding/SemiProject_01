@@ -5,16 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login and Registration</title>
+    
+    <!-- Font Awesome 아이콘 폰트 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to right, #3498db, #6c5ce7);
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-image: url('replace_with_your_image_path.jpg'); /* Replace with your image path */
+            background-image: url('replace_with_your_image_path.jpg');
             background-size: cover;
             background-position: center;
             transition: background-image 0.5s ease-in-out;
@@ -32,8 +36,8 @@
         }
 
         .form-header {
-            background-color: #3498db;
-            color: #ffffff;
+            background: linear-gradient(to right, #3498db, #6c5ce7);
+            color: #fff;
             padding: 30px;
             text-align: center;
             border-radius: 10px 10px 0 0;
@@ -55,9 +59,20 @@
             border-bottom: 1px solid #ddd;
         }
 
+        label {
+            display: flex;
+            align-items: center;
+            color: #555;
+            font-weight: bold;
+        }
+
+        .icon {
+            margin-right: 10px;
+        }
+
         input[type="text"],
         input[type="password"] {
-            width: calc(100% - 40px);
+            width: 100%;
             padding: 15px;
             margin: 15px 0;
             box-sizing: border-box;
@@ -73,8 +88,8 @@
         }
 
         input[type="submit"] {
-            background-color: #3498db;
-            color: #ffffff;
+            background: linear-gradient(to right, #3498db, #6c5ce7);
+            color: #fff;
             border: none;
             padding: 15px 30px;
             text-align: center;
@@ -87,7 +102,7 @@
         }
 
         input[type="submit"]:hover {
-            background-color: #2980b9;
+            background: linear-gradient(to right, #6c5ce7, #3498db);
         }
 
         .form-switch {
@@ -100,11 +115,11 @@
         span {
             display: block;
             margin-bottom: 15px;
-            color: #666;
+            color: #fff;
         }
 
         span a {
-            color: #3498db;
+            color: #e74c3c;
             text-decoration: none;
             font-weight: bold;
         }
@@ -131,11 +146,11 @@
         <form id="loginForm" action="logintest.do" method="post">
             <table>
                 <tr>
-                    <td><label for="ID">아이디:</label></td>
+                    <td><label for="ID"><i class="fas fa-user icon"></i>아이디:</label></td>
                     <td><input type="text" id="ID" name="ID" required></td>
                 </tr>
                 <tr>
-                    <td><label for="PW">비밀번호:</label></td>
+                    <td><label for="PW"><i class="fas fa-lock icon"></i>비밀번호:</label></td>
                     <td><input type="password" id="PW" name="PW" required></td>
                 </tr>
             </table>
@@ -143,15 +158,13 @@
         </form>
         
         <form action="sign.do" method="post" class="form-switch">
-            <span>아직 회원이 아니신가요? <a href="sign.do">회원가입</a></span>
+            <span style="color: #000;">아직 회원이 아니신가요? <a href="sign.do" style="color: #e74c3c; text-decoration: none; font-weight: bold;">회원가입</a></span>
+
             <input type="submit" value="회원가입">
         </form>
     </div>
 
     <script>
-    	
-    
-    
         document.getElementById('loginForm').addEventListener('submit', function (e) {
             e.preventDefault();
             var idField = document.getElementById('ID');
@@ -165,28 +178,24 @@
 
             // Reset error message
             errorMessage.textContent = '';
-
- 
         });
-
 
         // Enable Enter key functionality
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Enter') {
-            	 var idField = document.getElementById('ID');
-                 var pwField = document.getElementById('PW');
-                 var errorMessage = document.getElementById('error-message');
+                var idField = document.getElementById('ID');
+                var pwField = document.getElementById('PW');
+                var errorMessage = document.getElementById('error-message');
 
-                 if (idField.value.trim() === '' || pwField.value.trim() === '') {
-                     errorMessage.textContent = 'Please fill out all fields.';
-                     return;
-                 }
+                if (idField.value.trim() === '' || pwField.value.trim() === '') {
+                    errorMessage.textContent = 'Please fill out all fields.';
+                    return;
+                }
 
-                 // Reset error message
-                 errorMessage.textContent = '';
-             });
-
-
+                // Reset error message
+                errorMessage.textContent = '';
+            }
+        });
     </script>
 </body>
 </html>
