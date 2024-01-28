@@ -1,6 +1,8 @@
 package com.javalec.dto;
 
-public class ProductInsert_Dto_JH {
+import java.util.Base64;
+
+public class ProductList_Dto_JH {
 	
 	// Field
 	String pronum;
@@ -9,13 +11,19 @@ public class ProductInsert_Dto_JH {
 	String color;
 	int stock;
 	int price;
+	String filepath;
 	
 	// Constructor
-	public ProductInsert_Dto_JH() {
+	public ProductList_Dto_JH() {
 		// TODO Auto-generated constructor stub
 	}
+	 public String getBase64Image() {
+	        return Base64.getEncoder().encodeToString(image);
+	    }
 	
-	public ProductInsert_Dto_JH(String pronum, String brand, String proname, String color, int stock, int price) {
+	 byte[] image;  // 새로 추가한 필드
+	
+	public ProductList_Dto_JH(String pronum, String brand, String proname, String color, int stock, int price, byte[] image) {
 		super();
 		this.pronum = pronum;
 		this.brand = brand;
@@ -23,6 +31,7 @@ public class ProductInsert_Dto_JH {
 		this.color = color;
 		this.stock = stock;
 		this.price = price;
+		this.image = image; 
 	}
 
 	// Method
@@ -72,6 +81,22 @@ public class ProductInsert_Dto_JH {
 
 	public void setPrice(int price) {
 		this.price = price;
+	}
+
+	public String getFilepath() {
+		return filepath;
+	}
+
+	public void setFilepath(String filepath) {
+		this.filepath = filepath;
+	}
+
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
+		this.image = image;
 	}
 	
 }

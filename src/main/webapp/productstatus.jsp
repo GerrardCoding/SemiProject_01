@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -99,17 +101,20 @@
                     <th>수량</th>
                     <th>색상</th>
                     <th>가격</th>
-                    <th>제품사진</th>
+                    <th>사진</th>
+                    
                 </tr>
+                <c:forEach items="${list}" var="dto">
                 <tr>
-                    <td>${dto.pronum}</td>
-                    <td>${dto.brand}</td>
-                    <td>${dto.proname}</td>
-                    <td>${dto.color}</td>
-                    <td>${dto.stock}</td>
-                    <td>${dto.price}</td>
-                    <td>${"이미지"}</td>
-                </tr>
+                  <td>${dto.pronum}</td>
+                <td>${dto.brand}</td>
+                <td>${dto.proname}</td>
+                <td>${dto.stock}</td>
+                <td>${dto.color}</td>
+                <td>${dto.price}</td>
+                <td><img src="data:image/jpeg;base64,${dto.base64Image}" style="max-width: 200px; max-height: 150px;"/></td>
+                 </tr>
+                 </c:forEach>
             </table>
         </div>
 
@@ -135,7 +140,7 @@
                 <label>가격</label>
                 <input type="text" name="price" />
 
-                <label>제품사진</label><!-- 제품 사진은 디비에서 안불러와서 나중에 수정 필요 -->
+                <label>제품사진</label>
                 <input type="text" name="productImage" />
 
                 <input type="submit" value="등록" />
