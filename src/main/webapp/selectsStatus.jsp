@@ -30,7 +30,7 @@
     <div class="container">
         <h1>구매현황 및 회원조회</h1>
         
-        <button class="button">구매현황</button>
+        <a href="productstatus.jsp" class="button">구매현황</a>
         <button class="button">회원조회</button>
     </div>
 </body>
