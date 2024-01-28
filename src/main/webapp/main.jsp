@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	String s_id = (String)session.getAttribute("s_id");
+	String id = (String)session.getAttribute("id");
 	String menu = request.getParameter("menu");
 %>
 <!DOCTYPE html>
@@ -9,12 +9,13 @@
 <head>
 <meta charset="UTF-8">
 <title>메인</title>
+<link rel="stylesheet" href="./css/main.css">
+<%@ include file="/common/bootstrap_common.jsp"%>
 </head>
 <body>
+    <!-- ============================== [[ Header section]] ==============================-->
     <!-- ============================== [[ NavBar section]] ==============================-->
-    
 	<%@ include file="./include/navbar.jsp" %>
-	
     <!-- ============================== [[ NavBar section]] ============================== -->
     <%
     	if(menu == null){
@@ -37,6 +38,12 @@
  	<%
     	}
  	%>
+    <!-- ============================== [[ Header section]] ==============================-->
+    
+    
+    
+    
+    
     <!-- =============================  [[ Footer section ]]  ============================= -->
 
 	<%@ include file="./include/footer.jsp" %>

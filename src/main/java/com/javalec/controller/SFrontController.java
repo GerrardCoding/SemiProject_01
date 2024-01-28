@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.javalec.command.SCommand;
+import com.javalec.command.SProductSearchCommand;
 import com.javalec.command.SsignInsertCommand;
 import com.javalec.command.loginCommand;
 
@@ -99,7 +100,11 @@ public class SFrontController extends HttpServlet {
             command.execute(request, response);
             viewPage = (String) request.getAttribute("redirectURL"); // Check if redirectURL is set
             break;
-		
+		case("/productstatus.do"): // 상품 정보 페이지(관리자)
+			command = new SProductSearchCommand();
+			command.execute(request, response);
+			viewPage ="productstatus.jsp";
+			break;
 		default:
 			break;
 		
