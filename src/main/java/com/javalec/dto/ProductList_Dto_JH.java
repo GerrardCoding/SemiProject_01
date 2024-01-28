@@ -18,6 +18,7 @@ public class ProductList_Dto_JH {
 	public ProductList_Dto_JH() {
 		// TODO Auto-generated constructor stub
 	}
+	//byte[] image가 배열 형태로 저장되있기 때문에 이 배열값을 문자로 반환하는 매소
 	 public String getBase64Image() {
 	        return Base64.getEncoder().encodeToString(image);
 	    }

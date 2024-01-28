@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.javalec.command.SCommand;
 import com.javalec.command.SProductSearchCommand;
+import com.javalec.command.SPurchaseSearchCommand;
 import com.javalec.command.SsignInsertCommand;
 import com.javalec.command.loginCommand;
 
