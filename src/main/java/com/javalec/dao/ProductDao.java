@@ -43,7 +43,8 @@ public class ProductDao {
 		
 		try {
 			connection = dataSource.getConnection();
-			String query = "select pronum, brand, proname, price, imagename from product ";
+			String query = "select pronum, brand, proname, price, imagename from product";
+			
 			
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();

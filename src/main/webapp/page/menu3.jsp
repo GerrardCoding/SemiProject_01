@@ -69,28 +69,26 @@ h1 {
 }
 </style>
 <body>
-<!-- ============================== [[ NavBar section]] ==============================-->
-    
-	<%@ include file="../include/navbar.jsp" %>
-	
-<!-- ============================== [[ NavBar section]] ==============================-->
-<hr>
+	<!-- ============================== [[ NavBar section]] ==============================-->
+
+	<%@ include file="../include/navbar.jsp"%>
+
+	<!-- ============================== [[ NavBar section]] ==============================-->
+	<hr>
 	<div class="container">
-		<h2>아디다스</h2>
+		<h1>아디다스</h1>
 		<hr>
 		<div class="brand-list">
 			<c:forEach items="${list03}" var="dto">
-				<div class="brand-card">
+				<a href="productDetail.jsp?pronum=${dto.pronum}" class="brand-card">
 					<img class="brand-image"
-						src="${pageContext.request.contextPath}/images/${dto.imagename}"
-						alt="Brand Image">
+					src="${pageContext.request.contextPath}/images/${dto.imagename}"
+					alt="Brand Image">
 					<div class="brand-info">
 						<div class="brand-name">${dto.brand}</div>
 						<div class="brand-description">${dto.proname}</div>
-						<div class="brand-price" style="color: red;">${dto.price}원</div>
-						<%-- <div class="brand-pronum">${dto.pronum}</div> --%>
 					</div>
-				</div>
+				</a>
 			</c:forEach>
 		</div>
 		<hr>
@@ -98,7 +96,7 @@ h1 {
 	</div>
 	<hr>
 	<!-- =============================  [[ Footer section ]]  ============================= -->
-	<%@ include file="../include/footer.jsp" %>
-    <!-- =============================  [[ Footer section ]]  ============================= -->
+	<%@ include file="../include/footer.jsp"%>
+	<!-- =============================  [[ Footer section ]]  ============================= -->
 </body>
 </html>
