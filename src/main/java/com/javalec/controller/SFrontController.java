@@ -11,10 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.javalec.command.ImageUploadCommand;
+import com.javalec.command.Menu01Command;
 import com.javalec.command.SCommand;
 import com.javalec.command.SProductSearchCommand;
 import com.javalec.command.SPurchaseSearchCommand;
 import com.javalec.command.SsignInsertCommand;
+import com.javalec.command.brandCommand;
 import com.javalec.command.loginCommand;
 
 /**
@@ -117,9 +119,18 @@ public class SFrontController extends HttpServlet {
 		    command.execute(request, response);
 		    viewPage = "productstatus.do"; // 이미지 업로드 후 다시 상품 정보 페이지로 이동
 		    break;
+		case("/brandDetail.do"): // 구매현황 페이지(관리자)
+			command = new brandCommand();
+			command.execute(request, response);
+			viewPage ="brandDetail.jsp";
+			break;
+		case("/menu1.do"): // 구매현황 페이지(관리자)
+			command = new Menu01Command();
+			command.execute(request, response);
+			viewPage ="./page/menu1.jsp";
+			break;
 		default:
 			break;
-		
 		
 		}
 		

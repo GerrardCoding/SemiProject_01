@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%// ServletContext를 사용하여 업로드 경로를 가져옴
+   request.setCharacterEncoding("UTF-8");
+   ServletContext context = request.getServletContext();
+   String uploadPath = context.getRealPath("/images"); 
+	%>
+<link rel="stylesheet" href="./css/main.css">
+<%@ include file="/common/bootstrap_common.jsp"%>
 <style>
 body {
 	font-family: 'Arial', sans-serif;
@@ -54,7 +62,6 @@ h1 {
 	color: #495057;
 }
 </style>
-</head>
 <body>
 	<div class="container">
 		<h1>전체 상품</h1>
@@ -62,134 +69,31 @@ h1 {
 		<h2>Nike</h2>
 		<hr>
 		<div class="brand-list">
-
-            <%-- 브랜드 목록을 동적으로 생성하는 부분 (예제에서는 간단한 정적 데이터 사용) --%>
-           <form id="aaa" action="aaa.do" method="post">
-            <div class="brand-card">
-                <img class="brand-image" src="https://via.placeholder.com/200" alt="Brand Image">
-                <div class="brand-info">
-                    <div class="brand-name">에어포스</div>
-                    <div class="brand-description">Impossible is Nothing.</div>
-                </div>
-            </div>
-            
-            </form>
-            <div class="brand-card">
-                <img class="brand-image" src="https://via.placeholder.com/200" alt="Brand Image">
-                <div class="brand-info">
-                    <div class="brand-name">조던</div>
-                    <div class="brand-description">Impossible is Nothing.</div>
-                </div>
-            </div>
-            <%-- 추가 브랜드 카드들을 원하는 만큼 추가할 수 있습니다. --%>
-        </div>
-   		<br><br>
-	</div>
-</body>
-</html>
-=======
-			<%-- 브랜드 목록을 동적으로 생성하는 부분 (예제에서는 간단한 정적 데이터 사용) --%>
-			<div class="brand-card">
-				<img class="brand-image" src="./images/adidas01.jpg" alt="Brand Image">
-				<div class="brand-info">
-					<div class="brand-name">에어맥스</div>
-					<div class="brand-description">Nike</div>
-					<div class="brand-price">100,000원</div>
+			<c:forEach items="${list}" var="dto">
+				<div class="brand-card">
+					<img class="brand-image"
+						src="${pageContext.request.contextPath}/images/${dto.imagename}"
+						alt="Brand Image">
+					<div class="brand-info">
+						<div class="brand-name">${dto.brand}</div>
+						<div class="brand-description">${dto.proname}</div>
+						<div class="brand-price" style="color: red;">${dto.price}원</div>
+					</div>
 				</div>
-			</div>
-			<div class="brand-card">
-				<img class="brand-image" src="https://via.placeholder.com/200"
-					alt="Brand Image">
-				<div class="brand-info">
-					<div class="brand-name">에어포스</div>
-					<div class="brand-description">Nike</div>
-					<div class="brand-price">80,000원</div>
-				</div>
-			</div>
-			<div class="brand-card">
-				<img class="brand-image" src="https://via.placeholder.com/200"
-					alt="Brand Image">
-				<div class="brand-info">
-					<div class="brand-name">페가수스</div>
-					<div class="brand-description">Nike</div>
-					<div class="brand-price">110,000원</div>
-				</div>
-			</div>
-			<div class="brand-card">
-				<img class="brand-image" src="https://via.placeholder.com/200"
-					alt="Brand Image">
-				<div class="brand-info">
-					<div class="brand-name">레볼루션</div>
-					<div class="brand-description">Nike</div>
-					<div class="brand-price">110,000원</div>
-				</div>
-			</div>
-			<div class="brand-card">
-				<img class="brand-image" src="https://via.placeholder.com/200"
-					alt="Brand Image">
-				<div class="brand-info">
-					<div class="brand-name">레볼루션</div>
-					<div class="brand-description">Nike</div>
-					<div class="brand-price">110,000원</div>
-				</div>
-			</div>
-			<div class="brand-card">
-				<img class="brand-image" src="https://via.placeholder.com/200"
-					alt="Brand Image">
-				<div class="brand-info">
-					<div class="brand-name">레볼루션</div>
-					<div class="brand-description">Nike</div>
-					<div class="brand-price">110,000원</div>
-				</div>
-			</div>
-			<div class="brand-card">
-				<img class="brand-image" src="https://via.placeholder.com/200"
-					alt="Brand Image">
-				<div class="brand-info">
-					<div class="brand-name">레볼루션</div>
-					<div class="brand-description">Nike</div>
-					<div class="brand-price">110,000원</div>
-				</div>
-			</div>
-			<div class="brand-card">
-				<img class="brand-image" src="https://via.placeholder.com/200"
-					alt="Brand Image">
-				<div class="brand-info">
-					<div class="brand-name">레볼루션</div>
-					<div class="brand-description">Nike</div>
-					<div class="brand-price">110,000원</div>
-				</div>
-			</div>
-			<div class="brand-card">
-				<img class="brand-image" src="https://via.placeholder.com/200"
-					alt="Brand Image">
-				<div class="brand-info">
-					<div class="brand-name">레볼루션</div>
-					<div class="brand-description">Nike</div>
-					<div class="brand-price">110,000원</div>
-				</div>
-			</div>
-			<div class="brand-card">
-				<img class="brand-image" src="https://via.placeholder.com/200"
-					alt="Brand Image">
-				<div class="brand-info">
-					<div class="brand-name">레볼루션</div>
-					<div class="brand-description">Nike</div>
-					<div class="brand-price">110,000원</div>
-				</div>
-			</div>
+			</c:forEach>
 		</div>
 		<hr>
 		<h2>Adidas</h2>
 		<hr>
-				<div class="brand-list">
+		<div class="brand-list">
 			<%-- 브랜드 목록을 동적으로 생성하는 부분 (예제에서는 간단한 정적 데이터 사용) --%>
 			<div class="brand-card">
-				<img class="brand-image" src="./images/adidas01.jpg" alt="Brand Image">
+				<img class="brand-image" src="./images/adidas01.jpg"
+					alt="Brand Image">
 				<div class="brand-info">
 					<div class="brand-name">아디다스</div>
 					<div class="brand-description">퍼피렛</div>
-					<div class="brand-price">69,000원</div>
+					<div class="brand-price" style="color: red;">69,000원</div>
 				</div>
 			</div>
 			<div class="brand-card">
@@ -220,10 +124,11 @@ h1 {
 		<hr>
 		<h2>Mschf</h2>
 		<hr>
-				<div class="brand-list">
+		<div class="brand-list">
 			<%-- 브랜드 목록을 동적으로 생성하는 부분 (예제에서는 간단한 정적 데이터 사용) --%>
 			<div class="brand-card">
-				<img class="brand-image" src="./images/adidas01.jpg" alt="Brand Image">
+				<img class="brand-image" src="./images/adidas01.jpg"
+					alt="Brand Image">
 				<div class="brand-info">
 					<div class="brand-name">아디다스</div>
 					<div class="brand-description">퍼피렛</div>
@@ -257,4 +162,3 @@ h1 {
 		</div>
 		<br> <br>
 	</div>
-
