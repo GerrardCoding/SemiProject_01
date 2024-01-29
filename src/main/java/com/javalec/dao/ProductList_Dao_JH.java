@@ -37,7 +37,7 @@ public class ProductList_Dao_JH {
 			
 			try {
 				connection = dataSource.getConnection();
-				String query="select pronum, brand, proname, color, stock, price, image from product";
+				String query="select pronum, brand, proname, color, stock, price, imagename from product";
 				
 				preparedStatement = connection.prepareStatement(query);
 				resultSet = preparedStatement.executeQuery();
@@ -49,9 +49,9 @@ public class ProductList_Dao_JH {
 					String color=resultSet.getString("color");
 					int stock=resultSet.getInt("stock");
 					int price=resultSet.getInt("price");
-					byte[] image = resultSet.getBytes("image");  // image 추가					
+					String imagename = resultSet.getString("imagename");  // image 추가					
 					
-					ProductList_Dto_JH dto = new ProductList_Dto_JH(pronum, brand, proname, color, stock, price, image);
+					ProductList_Dto_JH dto = new ProductList_Dto_JH(pronum, brand, proname, color, stock, price, imagename);
 					
 					
 					dtos.add(dto);
