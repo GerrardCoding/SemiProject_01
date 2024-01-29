@@ -93,35 +93,36 @@
     <div class="container">
         <!-- 상품 정보 표시 테이블 -->
         <div class="product-info">
-            <table border="1">
-                <tr>
-                    <th>제품번호</th>
-                    <th>브렌드</th>
-                    <th>상품명</th>
-                    <th>수량</th>
-                    <th>색상</th>
-                    <th>가격</th>
-                    <th>사진</th>
-                    
-                </tr>
-                <c:forEach items="${list}" var="dto">
-                <tr>
-                  <td>${dto.pronum}</td>
-                <td>${dto.brand}</td>
-                <td>${dto.proname}</td>
-                <td>${dto.stock}</td>
-                <td>${dto.color}</td>
-                <td>${dto.price}</td>
-                <td><img src="data:image/jpeg;base64,${dto.base64Image}" style="max-width: 200px; max-height: 150px;"/></td>
-                 </tr>
-                 </c:forEach>
-            </table>
+            <form action="" method="post">
+                <table border="1">
+                    <tr>
+                        <th>제품번호</th>
+                        <th>브렌드</th>
+                        <th>상품명</th>
+                        <th>수량</th>
+                        <th>색상</th>
+                        <th>가격</th>
+                        <th>사진</th>
+                    </tr>
+                    <c:forEach items="${list}" var="dto">
+                        <tr>
+                            <td>${dto.pronum}</td>
+                            <td>${dto.brand}</td>
+                            <td>${dto.proname}</td>
+                            <td>${dto.stock}</td>
+                            <td>${dto.color}</td>
+                            <td>${dto.price}</td>
+                            <td><img src="data:image/jpeg;base64,${dto.base64Image}" style="max-width: 200px; max-height: 150px;"/></td>
+                        </tr>
+                    </c:forEach>
+                </table>
+            </form>
         </div>
 
         <!-- 추가 정보 입력을 위한 텍스트 필드 -->
         <div class="additional-info">
-            <h2>상품 등록</h2>
-            <form action="" method="post">
+            <form action="" method="post" enctype="multipart/form-data">
+                <h2>상품 등록</h2>
                 <label>제품번호</label>
                 <input type="text" name="productNum" />
 
@@ -140,8 +141,9 @@
                 <label>가격</label>
                 <input type="text" name="price" />
 
-                <label>제품사진</label>
-                <input type="text" name="productImage" />
+                <label>사진선택</label>
+                <input type="file" name="productImage" />
+                <input type="submit" value="addimage" name="productImage" />
 
                 <input type="submit" value="등록" />
             </form>
