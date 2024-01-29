@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.javalec.dto.adminDTO;
 import com.javalec.dto.loginDTO;
+import com.mysql.cj.Session;
 import com.javalec.dao.adminDAO;
 import com.javalec.dao.loginDAO;
 
@@ -22,6 +23,8 @@ public class loginCommand implements SCommand {
 		
 	            String id = request.getParameter("ID");
 	            String pw = request.getParameter("PW");
+	            HttpSession session = request.getSession();
+	            session.setAttribute("userid", id);
 	            
 	            if (id.isEmpty() || pw.isEmpty()) {
 	                // ID or PW is empty, set an attribute for error handling
@@ -35,16 +38,17 @@ public class loginCommand implements SCommand {
 	            com.javalec.dto.adminDTO admin = admindao.view(id, pw);
 	            
 	            
+	            
 	            if (user != null && user.getPassword().equals(pw)) {
 	                // Login successful
-	                HttpSession session = request.getSession();
+	               
 	                session.setAttribute("user", user);
 	                // You can set additional attributes or redirect to a specific page
 	                request.setAttribute("redirectURL", "loginSuccess.jsp");
 	                System.out.println(user.getName());
 	            } else if (admin != null && admin.getPassword().equals(pw)) {
 	                // Administrator login successful
-	                HttpSession session = request.getSession();
+	                
 	                session.setAttribute("admin", admin);
 	                System.out.println(admin.getName());
 
