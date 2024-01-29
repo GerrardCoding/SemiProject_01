@@ -91,13 +91,48 @@
             background-color: #45a049;
         }
     </style>
-      <script type="text/javascript">
-        function insertPro() {
-            let form = document.productImage;
-            form.submit();
-            return true;
+ <script type="text/javascript">
+    function insertPro() {
+        let form = document.form1;
+
+        if (!validateInput(form.pronum, /^[a-zA-Z0-9]+$/)) {
+            alert("유효한 제품번호를 입력하세요.");
+            return false;
         }
-    </script>
+
+        if (!validateInput(form.brand, /^[a-zA-Z]+$/)) {
+            alert("유효한 브랜드를 입력하세요.");
+            return false;
+        }
+
+        if (!validateInput(form.proname, /^[가-힣]+$|^[a-zA-Z]+$|^[가-힣a-zA-Z]+$/)) {
+            alert("유효한 상품명을 입력하세요.");
+            return false;
+        }
+
+        if (!validateInput(form.stock, /^\d+$/)) {
+            alert("유효한 수량을 입력하세요.");
+            return false;
+        }
+
+        if (!validateInput(form.color, /^[a-zA-Z]+$/)) {
+            alert("유효한 색상을 입력하세요.");
+            return false;
+        }
+
+        if (!validateInput(form.price, /^\d+$/)) {
+            alert("유효한 가격을 입력하세요.");
+            return false;
+        }
+
+        form.submit();
+        return true;
+    }
+
+    function validateInput(input, regex) {
+        return regex.test(input.value);
+    }
+</script>
 </head>
 <body>
     <h1>상품 현황</h1>
