@@ -1,0 +1,101 @@
+package com.javalec.dto;
+
+import java.util.Base64;
+
+public class ImageDTO {
+	// Field
+	String pronum;
+	String brand;
+	String proname;
+	String color;
+	int stock;
+	int price;
+	String filepath;
+
+	public ImageDTO() {
+		// TODO Auto-generated constructor stub
+	}
+
+	byte[] image; // 새로 추가한 필드
+	// byte[] image가 배열 형태로 저장되있기 때문에 이 배열값을 문자로 반환하는 매소
+
+	public String getBase64Image() {
+		return Base64.getEncoder().encodeToString(image);
+	}
+
+	public ImageDTO(String pronum, String brand, String proname, String color, int stock, int price, byte[] image) {
+		super();
+		this.pronum = pronum;
+		this.brand = brand;
+		this.proname = proname;
+		this.color = color;
+		this.stock = stock;
+		this.price = price;
+		this.image = image;
+	}
+
+	public String getPronum() {
+		return pronum;
+	}
+
+	public void setPronum(String pronum) {
+		this.pronum = pronum;
+	}
+
+	public String getBrand() {
+		return brand;
+	}
+
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
+
+	public String getProname() {
+		return proname;
+	}
+
+	public void setProname(String proname) {
+		this.proname = proname;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public int getStock() {
+		return stock;
+	}
+
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public String getFilepath() {
+		return filepath;
+	}
+
+	public void setFilepath(String filepath) {
+		this.filepath = filepath;
+	}
+
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(String base64Image) {
+		this.image = Base64.getDecoder().decode(base64Image);
+	}
+
+}
