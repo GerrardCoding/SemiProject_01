@@ -12,6 +12,9 @@ import javax.servlet.http.HttpSession;
 
 import com.javalec.command.ImageUploadCommand;
 import com.javalec.command.Menu01Command;
+import com.javalec.command.Menu02Command;
+import com.javalec.command.Menu03Command;
+import com.javalec.command.Menu04Command;
 import com.javalec.command.SCommand;
 import com.javalec.command.SProductSearchCommand;
 import com.javalec.command.SPurchaseSearchCommand;
@@ -124,11 +127,26 @@ public class SFrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage ="brandDetail.jsp";
 			break;
-		case("/menu1.do"): // 구매현황 페이지(관리자)
+		case("/menu1.do"): // 전체 상품
 			command = new Menu01Command();
 			command.execute(request, response);
 			viewPage ="./page/menu1.jsp";
 			break;
+		case("/menu2.do"): // 나이키 상품
+			command = new Menu02Command();
+			command.execute(request, response);
+			viewPage ="./page/menu2.jsp";
+			break;
+		case("/menu3.do"): // 아이다스 상품
+			command = new Menu03Command();
+			command.execute(request, response);
+			viewPage ="./page/menu3.jsp";
+		break;
+		case("/menu4.do"): // 미스치프 상품
+			command = new Menu04Command();
+			command.execute(request, response);
+			viewPage ="./page/menu4.jsp";
+		break;
 		default:
 			break;
 		

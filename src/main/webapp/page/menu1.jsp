@@ -1,13 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%// ServletContext를 사용하여 업로드 경로를 가져옴
-   request.setCharacterEncoding("UTF-8");
-   ServletContext context = request.getServletContext();
-   String uploadPath = context.getRealPath("/images"); 
-	%>
+<%
+// ServletContext를 사용하여 업로드 경로를 가져옴
+request.setCharacterEncoding("UTF-8");
+ServletContext context = request.getServletContext();
+String uploadPath = context.getRealPath("/images");
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>메인</title>
 <link rel="stylesheet" href="./css/main.css">
 <%@ include file="/common/bootstrap_common.jsp"%>
+</head>
 <style>
 body {
 	font-family: 'Arial', sans-serif;
@@ -63,13 +70,18 @@ h1 {
 }
 </style>
 <body>
+	<!-- ============================== [[ NavBar section]] ==============================-->
+
+	<%@ include file="../include/navbar.jsp"%>
+
+	<!-- ============================== [[ NavBar section]] ==============================-->
+	<hr>
+	<h1>전체 상품</h1>
+	<br>
+	<hr>
 	<div class="container">
-		<h1>전체 상품</h1>
-		<hr>
-		<h2>Nike</h2>
-		<hr>
 		<div class="brand-list">
-			<c:forEach items="${list}" var="dto">
+			<c:forEach items="${list01}" var="dto">
 				<div class="brand-card">
 					<img class="brand-image"
 						src="${pageContext.request.contextPath}/images/${dto.imagename}"
@@ -78,87 +90,19 @@ h1 {
 						<div class="brand-name">${dto.brand}</div>
 						<div class="brand-description">${dto.proname}</div>
 						<div class="brand-price" style="color: red;">${dto.price}원</div>
+						<%-- <div class="brand-pronum">${dto.pronum}</div> --%>
 					</div>
 				</div>
 			</c:forEach>
 		</div>
-		<hr>
-		<h2>Adidas</h2>
-		<hr>
-		<div class="brand-list">
-			<%-- 브랜드 목록을 동적으로 생성하는 부분 (예제에서는 간단한 정적 데이터 사용) --%>
-			<div class="brand-card">
-				<img class="brand-image" src="./images/adidas01.jpg"
-					alt="Brand Image">
-				<div class="brand-info">
-					<div class="brand-name">아디다스</div>
-					<div class="brand-description">퍼피렛</div>
-					<div class="brand-price" style="color: red;">69,000원</div>
-				</div>
-			</div>
-			<div class="brand-card">
-				<img class="brand-image" src="https://via.placeholder.com/200"
-					alt="Brand Image">
-				<div class="brand-info">
-					<div class="brand-name">나이키</div>
-					<div class="brand-description">Impossible is Nothing.</div>
-				</div>
-			</div>
-			<div class="brand-card">
-				<img class="brand-image" src="https://via.placeholder.com/200"
-					alt="Brand Image">
-				<div class="brand-info">
-					<div class="brand-name">조던</div>
-					<div class="brand-description">Impossible is Nothing.</div>
-				</div>
-			</div>
-			<div class="brand-card">
-				<img class="brand-image" src="https://via.placeholder.com/200"
-					alt="Brand Image">
-				<div class="brand-info">
-					<div class="brand-name">조던</div>
-					<div class="brand-description">Impossible is Nothing.</div>
-				</div>
-			</div>
-		</div>
-		<hr>
-		<h2>Mschf</h2>
-		<hr>
-		<div class="brand-list">
-			<%-- 브랜드 목록을 동적으로 생성하는 부분 (예제에서는 간단한 정적 데이터 사용) --%>
-			<div class="brand-card">
-				<img class="brand-image" src="./images/adidas01.jpg"
-					alt="Brand Image">
-				<div class="brand-info">
-					<div class="brand-name">아디다스</div>
-					<div class="brand-description">퍼피렛</div>
-					<div class="brand-price">69,000원</div>
-				</div>
-			</div>
-			<div class="brand-card">
-				<img class="brand-image" src="https://via.placeholder.com/200"
-					alt="Brand Image">
-				<div class="brand-info">
-					<div class="brand-name">나이키</div>
-					<div class="brand-description">Impossible is Nothing.</div>
-				</div>
-			</div>
-			<div class="brand-card">
-				<img class="brand-image" src="https://via.placeholder.com/200"
-					alt="Brand Image">
-				<div class="brand-info">
-					<div class="brand-name">조던</div>
-					<div class="brand-description">Impossible is Nothing.</div>
-				</div>
-			</div>
-			<div class="brand-card">
-				<img class="brand-image" src="https://via.placeholder.com/200"
-					alt="Brand Image">
-				<div class="brand-info">
-					<div class="brand-name">조던</div>
-					<div class="brand-description">Impossible is Nothing.</div>
-				</div>
-			</div>
-		</div>
-		<br> <br>
 	</div>
+	<hr>
+	<hr>
+	<br>
+	<br>
+	<hr>
+	<!-- =============================  [[ Footer section ]]  ============================= -->
+	<%@ include file="../include/footer.jsp"%>
+	<!-- =============================  [[ Footer section ]]  ============================= -->
+</body>
+</html>

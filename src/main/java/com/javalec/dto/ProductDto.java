@@ -16,13 +16,15 @@ public class ProductDto {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ProductDto(String brand, String proname, int price, String imagename) {
+	public ProductDto(String pronum, String brand, String proname, int price, String imagename) {
 		super();
+		this.pronum = pronum;
 		this.brand = brand;
 		this.proname = proname;
 		this.price = price;
 		this.imagename = imagename;
 	}
+
 
 	public ProductDto(String pronum, String brand, String proname, String color, int stock, int price,
 			String imagename) {

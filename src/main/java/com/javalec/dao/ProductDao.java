@@ -43,20 +43,20 @@ public class ProductDao {
 		
 		try {
 			connection = dataSource.getConnection();
-			String query = "select brand, proname, price, imagename from product ";
-			String query1 = " where brand = 'nike'";
+			String query = "select pronum, brand, proname, price, imagename from product ";
 			
-			preparedStatement = connection.prepareStatement(query + query1);
+			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 			
 			while(resultSet.next()) {
+				pronum = resultSet.getString("pronum");
 				brand = resultSet.getString("brand");
 				proname = resultSet.getString("proname");
 				price = resultSet.getInt("price");
 				imagename = resultSet.getString("imagename");  // image 추가					
 				
 				
-				ProductDto dto = new ProductDto(brand, proname, price, imagename);
+				ProductDto dto = new ProductDto(pronum, brand, proname, price, imagename);
 				
 				dtos.add(dto);
 			}
@@ -77,4 +77,135 @@ public class ProductDao {
 		return dtos;
 	} // listMenu1
 	
+	public ArrayList<ProductDto> listMenu2() {
+		ArrayList<ProductDto> dtos = new ArrayList<ProductDto>();
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement =null;
+		ResultSet resultSet = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			String query = "select pronum, brand, proname, price, imagename from product ";
+			String query1 = " where brand = 'nike'";
+			
+			preparedStatement = connection.prepareStatement(query + query1);
+			resultSet = preparedStatement.executeQuery();
+			
+			while(resultSet.next()) {
+				pronum = resultSet.getString("pronum");
+				brand = resultSet.getString("brand");
+				proname = resultSet.getString("proname");
+				price = resultSet.getInt("price");
+				imagename = resultSet.getString("imagename");  // image 추가					
+				
+				
+				ProductDto dto = new ProductDto(pronum, brand, proname, price, imagename);
+				
+				dtos.add(dto);
+			}
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+					if(resultSet != null) resultSet.close();
+					if(preparedStatement !=null) preparedStatement.close();
+					if(connection !=null) connection.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+		}
+		return dtos;
+	} // listMenu2
+	
+	public ArrayList<ProductDto> listMenu3() {
+		ArrayList<ProductDto> dtos = new ArrayList<ProductDto>();
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement =null;
+		ResultSet resultSet = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			String query = "select pronum, brand, proname, price, imagename from product ";
+			String query1 = " where brand = 'adidas'";
+			
+			preparedStatement = connection.prepareStatement(query + query1);
+			resultSet = preparedStatement.executeQuery();
+			
+			while(resultSet.next()) {
+				pronum = resultSet.getString("pronum");
+				brand = resultSet.getString("brand");
+				proname = resultSet.getString("proname");
+				price = resultSet.getInt("price");
+				imagename = resultSet.getString("imagename");  // image 추가					
+				
+				
+				ProductDto dto = new ProductDto(pronum, brand, proname, price, imagename);
+				
+				dtos.add(dto);
+			}
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+					if(resultSet != null) resultSet.close();
+					if(preparedStatement !=null) preparedStatement.close();
+					if(connection !=null) connection.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+		}
+		return dtos;
+	} // listMenu3
+	
+	public ArrayList<ProductDto> listMenu4() {
+		ArrayList<ProductDto> dtos = new ArrayList<ProductDto>();
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement =null;
+		ResultSet resultSet = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			String query = "select pronum, brand, proname, price, imagename from product ";
+			String query1 = " where brand = 'mischief'";
+			
+			preparedStatement = connection.prepareStatement(query + query1);
+			resultSet = preparedStatement.executeQuery();
+			
+			while(resultSet.next()) {
+				pronum = resultSet.getString("pronum");
+				brand = resultSet.getString("brand");
+				proname = resultSet.getString("proname");
+				price = resultSet.getInt("price");
+				imagename = resultSet.getString("imagename");  // image 추가					
+				
+				
+				ProductDto dto = new ProductDto(pronum, brand, proname, price, imagename);
+				
+				dtos.add(dto);
+			}
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+					if(resultSet != null) resultSet.close();
+					if(preparedStatement !=null) preparedStatement.close();
+					if(connection !=null) connection.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+		}
+		return dtos;
+	} // listMenu4
 }

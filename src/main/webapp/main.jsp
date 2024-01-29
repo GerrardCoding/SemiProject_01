@@ -32,28 +32,7 @@
     		
     <%
     	}
-    	else if("menu1".equals(menu)){
     %>
-    
-    <%
-    	}
-    	else if("menu2".equals(menu)){
-    %>
-    <jsp:include page="./page/menu2.jsp" />
- 	<%
-    	}
-    	else if("menu3".equals(menu)){
- 	%>
- 	<jsp:include page="./page/menu3.jsp" />
- 	<%
-    	}
-    	else if("menu4".equals(menu)){
- 	%>
- 	<jsp:include page="./page/menu4.jsp" />
- 	
- 	<%
-    	}
- 	%>
     <!-- ============================== [[ Body  section]] ==============================-->
    		<hr>
     <!-- =============================  [[ Footer section ]]  ============================= -->

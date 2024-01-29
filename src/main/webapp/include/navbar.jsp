@@ -29,13 +29,13 @@
               <a class="nav-link active" aria-current="page" href="menu1.do">전체 상품</a>
             </li>
 	        <li class="nav-item">
-	          <a class="nav-link" href="./main.jsp?menu=menu2">Nike</a>
+	          <a class="nav-link" href="menu2.do">Nike</a>
 	        </li>
 	        <li class="nav-item">
-	          <a class="nav-link" href="./main.jsp?menu=menu3">Adidas</a>
+	          <a class="nav-link" href="menu3.do">Adidas</a>
 	        </li>
 	        <li class="nav-item">
-	          <a class="nav-link" href="./main.jsp?menu=menu4">Mschf</a>
+	          <a class="nav-link" href="menu4.do">Mschf</a>
 	        </li>
           </ul>
         </div>
