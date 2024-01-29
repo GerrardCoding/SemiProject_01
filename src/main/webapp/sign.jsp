@@ -87,13 +87,37 @@
             margin-right: 10px;
         }
     </style>
-    <script type="text/javascript">
-        function checkLogin() {
-            let form = document.loginForm;
-            form.submit();
-            return true;
+   <script type="text/javascript">
+    function checkLogin() {
+        let form = document.loginForm;
+        if (!validateId(form.id.value)) {
+            alert("유효한 아이디를 입력하세요.");
+            return false;
         }
-    </script>
+        if (!validatePassword(form.pw.value)) {
+            alert("유효한 비밀번호를 입력하세요.");
+            return false;
+        }
+        if (!validateName(form.name.value)) {
+            alert("유효한 이름을 입력하세요.");
+            return false;
+        }
+        form.submit();
+        return true;
+    }
+
+    function validateId(id) {
+        return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,}$/.test(id);
+    }
+
+    function validatePassword(password) {
+        return /^(?=.*[a-z])(?=.*\d)[a-z\d]{6,}$/.test(password);
+    }
+
+    function validateName(name) {
+        return /^[가-힣a-zA-Z]{2,}$/.test(name);
+    }
+</script>
 </head>
 <body>
     <div class="container">
