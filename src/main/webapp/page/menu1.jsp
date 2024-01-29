@@ -11,6 +11,7 @@
 	<h2>전체</h2>
 		<div class="brand-list">
             <%-- 브랜드 목록을 동적으로 생성하는 부분 (예제에서는 간단한 정적 데이터 사용) --%>
+           <form id="aaa" action="aaa.do" method="post">
             <div class="brand-card">
                 <img class="brand-image" src="https://via.placeholder.com/200" alt="Brand Image">
                 <div class="brand-info">
@@ -18,6 +19,8 @@
                     <div class="brand-description">Impossible is Nothing.</div>
                 </div>
             </div>
+            
+            </form>
             <div class="brand-card">
                 <img class="brand-image" src="https://via.placeholder.com/200" alt="Brand Image">
                 <div class="brand-info">
