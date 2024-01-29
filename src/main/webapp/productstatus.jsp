@@ -87,13 +87,20 @@
             background-color: #45a049;
         }
     </style>
+      <script type="text/javascript">
+        function insertPro() {
+            let form = document.productImage;
+            form.submit();
+            return true;
+        }
+    </script>
 </head>
 <body>
     <h1>상품 현황</h1>
     <div class="container">
         <!-- 상품 정보 표시 테이블 -->
         <div class="product-info">
-            <form action="" method="post">
+            <form method="post">
                 <table border="1">
                     <tr>
                         <th>제품번호</th>
@@ -112,7 +119,7 @@
                             <td>${dto.stock}</td>
                             <td>${dto.color}</td>
                             <td>${dto.price}</td>
-                            <td><img src="data:image/jpeg;base64,${dto.base64Image}" style="max-width: 200px; max-height: 150px;"/></td>
+                            <td>${dto.imagename}</td>
                         </tr>
                     </c:forEach>
                 </table>
@@ -121,31 +128,30 @@
 
         <!-- 추가 정보 입력을 위한 텍스트 필드 -->
         <div class="additional-info">
-            <form action="" method="post" enctype="multipart/form-data">
+    <form name="form1" method="post" enctype="multipart/form-data" action="uploadImage.do">
                 <h2>상품 등록</h2>
                 <label>제품번호</label>
-                <input type="text" name="productNum" />
+                <input type="text" name="pronum" />
 
                 <label>브렌드</label>
                 <input type="text" name="brand" />
 
                 <label>상품명</label>
-                <input type="text" name="productName" />
+                <input type="text" name="proname" />
 
                 <label>수량</label>
-                <input type="text" name="quantity" />
+                <input type="text" name="stock" />
 
                 <label>색상</label>
                 <input type="text" name="color" />
 
                 <label>가격</label>
                 <input type="text" name="price" />
+                
+                <label>사진명</label>
+                <input type="file" name="imagename" value="imagename" />
+                <input type="submit" value="등록" name="productImage" onclick="insertPro()"/>
 
-                <label>사진선택</label>
-                <input type="file" name="productImage" />
-                <input type="submit" value="addimage" name="productImage" />
-
-                <input type="submit" value="등록" />
             </form>
         </div>
     </div>

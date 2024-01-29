@@ -1,6 +1,5 @@
 package com.javalec.dto;
 
-import java.util.Base64;
 
 public class ImageDTO {
 	// Field
@@ -10,20 +9,13 @@ public class ImageDTO {
 	String color;
 	int stock;
 	int price;
-	String filepath;
+	String imagename;
 
 	public ImageDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	byte[] image; // 새로 추가한 필드
-	// byte[] image가 배열 형태로 저장되있기 때문에 이 배열값을 문자로 반환하는 매소
-
-	public String getBase64Image() {
-		return Base64.getEncoder().encodeToString(image);
-	}
-
-	public ImageDTO(String pronum, String brand, String proname, String color, int stock, int price, byte[] image) {
+	public ImageDTO(String pronum, String brand, String proname, String color, int stock, int price, String imagename) {
 		super();
 		this.pronum = pronum;
 		this.brand = brand;
@@ -31,7 +23,7 @@ public class ImageDTO {
 		this.color = color;
 		this.stock = stock;
 		this.price = price;
-		this.image = image;
+		this.imagename = imagename;
 	}
 
 	public String getPronum() {
@@ -82,20 +74,14 @@ public class ImageDTO {
 		this.price = price;
 	}
 
-	public String getFilepath() {
-		return filepath;
+	public String getImagename() {
+		return imagename;
 	}
 
-	public void setFilepath(String filepath) {
-		this.filepath = filepath;
+	public void setImagename(String imagename) {
+		this.imagename = imagename;
 	}
 
-	public byte[] getImage() {
-		return image;
-	}
-
-	public void setImage(String base64Image) {
-		this.image = Base64.getDecoder().decode(base64Image);
-	}
+	
 
 }

@@ -11,21 +11,17 @@ public class ProductList_Dto_JH {
 	String color;
 	int stock;
 	int price;
-	String filepath;
+	String imagename;
 	//구매현황
 	
 	// Constructor
 	public ProductList_Dto_JH() {
 		// TODO Auto-generated constructor stub
 	}
-	//byte[] image가 배열 형태로 저장되있기 때문에 이 배열값을 문자로 반환하는 매소
-	 public String getBase64Image() {
-	        return Base64.getEncoder().encodeToString(image);
-	    }
+	//byte[] imagename가 배열 형태로 저장되있기 때문에 이 배열값을 문자로 반환하는 매소
 	
-	 byte[] image;  // 새로 추가한 필드
 	//상품현황에서 사용하는 dto
-	public ProductList_Dto_JH(String pronum, String brand, String proname, String color, int stock, int price, byte[] image) {
+	public ProductList_Dto_JH(String pronum, String brand, String proname, String color, int stock, int price, String imagename) {
 		super();
 		this.pronum = pronum;
 		this.brand = brand;
@@ -33,7 +29,7 @@ public class ProductList_Dto_JH {
 		this.color = color;
 		this.stock = stock;
 		this.price = price;
-		this.image = image; 
+		this.imagename = imagename; 
 	}
 	
 
@@ -86,20 +82,14 @@ public class ProductList_Dto_JH {
 		this.price = price;
 	}
 
-	public String getFilepath() {
-		return filepath;
+	public String getImagename() {
+		return imagename;
 	}
 
-	public void setFilepath(String filepath) {
-		this.filepath = filepath;
+	public void setImagename(String imagename) {
+		this.imagename = imagename;
 	}
 
-	public byte[] getImage() {
-		return image;
-	}
 
-	public void setImage(byte[] image) {
-		this.image = image;
-	}
 	
 }

@@ -23,13 +23,13 @@ public class ImageDAO {
 		}
 	}
 
-	public void write(String pronum, String brand, String proname, String color, int stock, int price, byte[] image) {
+	public void write(String pronum, String brand, String proname, String color, int stock, int price, String imagename) {
 		Connection connection = null;
 		PreparedStatement preparedStatement =null;
 		
 		try {
 			connection = dataSource.getConnection();
-			String query = "INSERT INTO product (pronum, brand, proname, color, stock, price,image) VALUES (?, ?, ?, ?, ?, ?,? );";
+			String query = "INSERT INTO product (pronum, brand, proname, color, stock, price,imagename) VALUES (?, ?, ?, ?, ?, ?,? );";
 			preparedStatement =connection.prepareStatement(query);
 			preparedStatement.setString(1, pronum);
 			preparedStatement.setString(2, brand);
@@ -37,7 +37,7 @@ public class ImageDAO {
 			preparedStatement.setString(4, color);
 			preparedStatement.setInt(5, stock);
 			preparedStatement.setInt(6, price);
-			 preparedStatement.setBytes(7, image);	
+			preparedStatement.setString(7, imagename);
 			
 			preparedStatement.executeUpdate();
 			
