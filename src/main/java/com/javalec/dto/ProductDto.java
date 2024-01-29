@@ -9,13 +9,23 @@ public class ProductDto {
 	String color;
 	int stock;
 	int price;
+	String imagename;
 	
 	// Constructor
 	public ProductDto() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	public ProductDto(String pronum, String brand, String proname, String color, int stock, int price) {
+
+	public ProductDto(String brand, String proname, int price, String imagename) {
+		super();
+		this.brand = brand;
+		this.proname = proname;
+		this.price = price;
+		this.imagename = imagename;
+	}
+
+	public ProductDto(String pronum, String brand, String proname, String color, int stock, int price,
+			String imagename) {
 		super();
 		this.pronum = pronum;
 		this.brand = brand;
@@ -23,6 +33,7 @@ public class ProductDto {
 		this.color = color;
 		this.stock = stock;
 		this.price = price;
+		this.imagename = imagename;
 	}
 
 	// Method
@@ -72,6 +83,14 @@ public class ProductDto {
 
 	public void setPrice(int price) {
 		this.price = price;
+	}
+
+	public String getImagename() {
+		return imagename;
+	}
+
+	public void setImagename(String imagename) {
+		this.imagename = imagename;
 	}
 	
 }

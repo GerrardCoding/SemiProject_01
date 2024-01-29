@@ -34,7 +34,7 @@
     	}
     	else if("menu1".equals(menu)){
     %>
-    <jsp:include page="./page/menu1.jsp" />
+    
     <%
     	}
     	else if("menu2".equals(menu)){
@@ -50,6 +50,7 @@
     	else if("menu4".equals(menu)){
  	%>
  	<jsp:include page="./page/menu4.jsp" />
+ 	
  	<%
     	}
  	%>
