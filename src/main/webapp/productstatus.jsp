@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
-    
+   <%// ServletContext를 사용하여 업로드 경로를 가져옴
+   request.setCharacterEncoding("UTF-8");
+   ServletContext context = request.getServletContext();
+   String uploadPath = context.getRealPath("/images"); 
+	%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -119,7 +123,8 @@
                             <td>${dto.stock}</td>
                             <td>${dto.color}</td>
                             <td>${dto.price}</td>
-                            <td>${dto.imagename}</td>
+                            <td><img src="${pageContext.request.contextPath}/images/${dto.imagename}" width="100" height="100"></td>
+
                         </tr>
                     </c:forEach>
                 </table>
