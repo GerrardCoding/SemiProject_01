@@ -7,12 +7,13 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-public class ProductInsert_Dao_JH {
+
+public class ImageDAO {
 	DataSource dataSource;
 	
 	
 	
-	public ProductInsert_Dao_JH() {
+	public ImageDAO() {
 		try {
 			Context context = new InitialContext();
 			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/semiproject_01"); // context 파일 위치
@@ -21,16 +22,14 @@ public class ProductInsert_Dao_JH {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
-	public void write(String pronum, String brand, String proname, String color, int stock, int price) {
+
+	public void write(String pronum, String brand, String proname, String color, int stock, int price, byte[] image) {
 		Connection connection = null;
 		PreparedStatement preparedStatement =null;
 		
 		try {
 			connection = dataSource.getConnection();
-			String query = "INSERT INTO product (pronum, brand, proname, color, stock, price) VALUES (?, ?, ?, ?, ?, ?);";
+			String query = "INSERT INTO product (pronum, brand, proname, color, stock, price,image) VALUES (?, ?, ?, ?, ?, ?,? );";
 			preparedStatement =connection.prepareStatement(query);
 			preparedStatement.setString(1, pronum);
 			preparedStatement.setString(2, brand);
@@ -38,6 +37,8 @@ public class ProductInsert_Dao_JH {
 			preparedStatement.setString(4, color);
 			preparedStatement.setInt(5, stock);
 			preparedStatement.setInt(6, price);
+			 preparedStatement.setBytes(7, image);	
+			
 			preparedStatement.executeUpdate();
 			
 					
@@ -56,5 +57,4 @@ public class ProductInsert_Dao_JH {
 		
 		
 	}//write
-	
 }
