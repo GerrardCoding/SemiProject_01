@@ -143,7 +143,7 @@
         <div class="form-header">
             <h2>Login and Registration</h2>
         </div>
-        <form id="loginForm" action="logintest.do" method="post">
+        <form action="logintest.do" method="post">
             <table>
                 <tr>
                     <td><label for="ID"><i class="fas fa-user icon"></i>아이디:</label></td>

@@ -17,7 +17,7 @@
 %>
        <script type="text/javascript">
             alert('로그인 성공입니다. Welcome, <%= admin.getName()+"님" %>!');
-            window.location.href = 'adminPage.jsp';
+            window.location.href = 'selectsStatus.jsp';
             </script>
             </body>
         </html>

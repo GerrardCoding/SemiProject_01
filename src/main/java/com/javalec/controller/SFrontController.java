@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.javalec.command.ImageUploadCommand;
 import com.javalec.command.SCommand;
 import com.javalec.command.SProductSearchCommand;
 import com.javalec.command.SPurchaseSearchCommand;
@@ -111,6 +112,11 @@ public class SFrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage ="purchasestatus.jsp";
 			break;
+		case("/uploadImage.do"):
+		    command = new ImageUploadCommand(); // 새로운 커맨드 클래스를 만들어야 함
+		    command.execute(request, response);
+		    viewPage = "productstatus.do"; // 이미지 업로드 후 다시 상품 정보 페이지로 이동
+		    break;
 		default:
 			break;
 		
