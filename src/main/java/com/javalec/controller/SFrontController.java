@@ -18,6 +18,7 @@ import com.javalec.command.Menu04Command;
 import com.javalec.command.SCommand;
 import com.javalec.command.SProductSearchCommand;
 import com.javalec.command.SPurchaseSearchCommand;
+import com.javalec.command.SelectInsertCommand;
 import com.javalec.command.SsignInsertCommand;
 import com.javalec.command.brandCommand;
 import com.javalec.command.loginCommand;
@@ -145,6 +146,13 @@ public class SFrontController extends HttpServlet {
 			command = new Menu04Command();
 			command.execute(request, response);
 			viewPage ="./page/menu4.jsp";
+		break;
+		case("/purchase.do"): // 미스치프 상품
+			System.out.println("1");
+			command = new SelectInsertCommand();
+			command.execute(request, response);
+			viewPage = (String) request.getAttribute("redirectURL");
+			System.out.println(viewPage);
 		break;
 		default:
 			break;

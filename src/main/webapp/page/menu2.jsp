@@ -80,12 +80,11 @@ h1 {
 		<hr>
 		<div class="brand-list">
 			<c:forEach items="${list02}" var="dto">
-				<a href="productDetail.jsp?pronum=${dto.pronum}" class="brand-card">
+				<a href="brandDetail.do?proname=${dto.proname}" class="brand-card">
 					<img class="brand-image"
 					src="${pageContext.request.contextPath}/images/${dto.imagename}"
 					alt="Brand Image">
 					<div class="brand-info">
-						<div class="brand-name">${dto.brand}</div>
 						<div class="brand-description">${dto.proname}</div>
 					</div>
 				</a>
