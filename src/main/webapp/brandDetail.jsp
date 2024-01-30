@@ -89,7 +89,11 @@
                     String formattedPrice = koreanFormat.format(price);
         %>
         <tr>
-            <td><img src="<%= product.getImagename() %>" alt="Product Image"></td>
+            <td><img src="${pageContext.request.contextPath}/images/<%= product.getImagename()%>" width="300" height="300"></td>
+            <%
+           out.print(product.getImagename());
+            
+            %>
             <td>
                 <p>Product brand: <%= brand %></p>
                 <p>Product Name: <%= productName %></p>

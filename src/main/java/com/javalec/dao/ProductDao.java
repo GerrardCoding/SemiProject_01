@@ -43,7 +43,7 @@ public class ProductDao {
 		
 		try {
 			connection = dataSource.getConnection();
-			String query = "select distinct proname from product;";
+			String query = "select proname, imagename from product;";
 			
 			
 			preparedStatement = connection.prepareStatement(query);
@@ -54,10 +54,10 @@ public class ProductDao {
 				//brand = resultSet.getString("brand");
 				proname = resultSet.getString("proname");
 				//price = resultSet.getInt("price");
-				//imagename = resultSet.getString("imagename");  // image 추가					
+				imagename = resultSet.getString("imagename");  // image 추가					
 				
 				
-				ProductDto dto = new ProductDto(proname);
+				ProductDto dto = new ProductDto(proname,imagename);
 				
 				dtos.add(dto);
 			}

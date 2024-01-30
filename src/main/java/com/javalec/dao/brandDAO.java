@@ -63,7 +63,7 @@ public class brandDAO {
 
 	                List<String> availableColors = getAvailableColorsForProduct(productName);
 	                product.setAvailableColors(availableColors);
-
+	                System.out.println(resultSet.getString("imagename"));
 	                products.add(product);
 	            }
 	        }
