@@ -15,7 +15,7 @@ public class brandCommand implements SCommand {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
-		 String brandName = request.getParameter("brand");
+		 String brandName = request.getParameter("proname");
 		 HttpSession session = request.getSession();
 
 		 brandDAO dao = new brandDAO();

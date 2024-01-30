@@ -40,7 +40,7 @@ public class brandDAO {
 
 	    try {
 	        connection = datasource.getConnection();
-	        String query = "SELECT pronum, brand, proname, color, price FROM product WHERE proname = ?";
+	        String query = "SELECT pronum, brand, proname, color, price,imagename FROM product WHERE proname = ?";
 	        preparedStatement = connection.prepareStatement(query);
 	        preparedStatement.setString(1, productName);
 
@@ -59,6 +59,7 @@ public class brandDAO {
 	                product.setProductName(resultSet.getString("proname"));
 	                product.setProductCol(resultSet.getString("color"));
 	                product.setProductprice(resultSet.getInt("price"));
+	                product.setImagename(resultSet.getString("imagename"));
 
 	                List<String> availableColors = getAvailableColorsForProduct(productName);
 	                product.setAvailableColors(availableColors);
