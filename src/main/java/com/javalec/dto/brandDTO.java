@@ -10,13 +10,41 @@ public class brandDTO {
 	private String productbrand;
 	private double productprice;
 	private String productnum;
+	private String brand;
+	private String imagename;
 	
 	
 	public brandDTO() {
 		
 	}
 	
-	   public String getProductName() {
+	
+	
+	   public String getBrand() {
+		return brand;
+	}
+
+
+
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
+
+
+
+	public String getImagename() {
+		return imagename;
+	}
+
+
+
+	public void setImagename(String imagename) {
+		this.imagename = imagename;
+	}
+
+
+
+	public String getProductName() {
 	        return productName;
 	    }
 
