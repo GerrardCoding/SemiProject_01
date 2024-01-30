@@ -116,23 +116,31 @@
         }
     </style>
     <script type="text/javascript">
-        function checkLogin() {
-            let form = document.loginForm;
-            if (!validateId(form.id.value)) {
-                alert("유효한 아이디를 입력하세요.");
-                return false;
-            }
-            if (!validatePassword(form.pw.value)) {
-                alert("유효한 비밀번호를 입력하세요.");
-                return false;
-            }
-            if (!validateName(form.name.value)) {
-                alert("유효한 이름을 입력하세요.");
-                return false;
-            }
-            form.submit();
-            return true;
-        }
+	    function checkLogin() {
+	        let form = document.loginForm;
+	        let id = form.id.value.trim().toLowerCase(); // 입력된 아이디를 소문자로 변환
+	
+	        // 아이디가 "admin"인 경우 회원가입 실패
+	        if (id === 'admin') {
+	            alert("사용할 수 없는 아이디입니다.");
+	            return false;
+	        }
+	
+	        if (!validateId(id)) {
+	            alert("유효한 아이디를 입력하세요.");
+	            return false;
+	        }
+	        if (!validatePassword(form.pw.value)) {
+	            alert("유효한 비밀번호를 입력하세요.");
+	            return false;
+	        }
+	        if (!validateName(form.name.value)) {
+	            alert("유효한 이름을 입력하세요.");
+	            return false;
+	        }
+	        form.submit();
+	        return true;
+	    }
 
         function validateId(id) {
             return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,}$/.test(id);
