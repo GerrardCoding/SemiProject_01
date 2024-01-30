@@ -143,7 +143,7 @@
         <div class="form-header">
             <h2>Login and Registration</h2>
         </div>
-        <form action="logintest.do" method="post">
+        <form action="logintest.do" method="post" style="text-align: center;">
             <table>
                 <tr>
                     <td><label for="ID"><i class="fas fa-user icon"></i>아이디:</label></td>
@@ -154,7 +154,7 @@
                     <td><input type="password" id="PW" name="PW" required></td>
                 </tr>
             </table>
-            <input type="submit" value="로그인">
+            <input type="submit" value="로그인"  style="margin: 0 auto;">
         </form>
         
         <form action="sign.do" method="post" class="form-switch">
