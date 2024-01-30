@@ -71,7 +71,6 @@ public class SFrontController extends HttpServlet {
 		SCommand command = null;
 		String viewPage =null;
 		
-		
 		String uri= request.getRequestURI();//uri=> 뒤에 쓴것만 가져오
 		System.out.println(uri);
 		String conPath = request.getContextPath();///MVCBoard
@@ -81,7 +80,7 @@ public class SFrontController extends HttpServlet {
 		
 		switch(com) {
 		case("/login.do"): // 로그인 페이지
-//			session.setAttribute("test", "aaa");//세션 사용은 이렇
+			session.invalidate();
 //			command = new BListCommand();
 //			command.execute(request, response);
 			viewPage ="login.jsp";
