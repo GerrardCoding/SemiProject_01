@@ -12,6 +12,7 @@
     <!-- Font Awesome 아이콘 폰트 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <style>
+ 
         body {
             background-color: #f8f9fa;
             font-family: 'Roboto', sans-serif;
@@ -86,38 +87,81 @@
         .icon {
             margin-right: 10px;
         }
+
+        .input-text {
+            position: relative;
+        }
+
+        .input-text input {
+            padding-left: 30px; /* 안내 문구 공간 확보 */
+        }
+
+        .input-text .input-placeholder {
+            position: absolute;
+            top: 70%;
+            left: 8px;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: #999;
+            transition: all 0.3s;
+            text-align: left; /* 좌측 정렬 추가 */
+            width: 100%; /* 중앙 정렬 유지 */
+        }
+
+        .input-text input:focus + .input-placeholder,
+        .input-text input:valid + .input-placeholder {
+            font-size: 0; /* 입력시 안내 문구 사라짐 */
+            transform: translateY(-80%);
+            color: #555;
+        }
     </style>
-   <script type="text/javascript">
-    function checkLogin() {
-        let form = document.loginForm;
-        if (!validateId(form.id.value)) {
-            alert("유효한 아이디를 입력하세요.");
-            return false;
+    <script type="text/javascript">
+        function checkLogin() {
+            let form = document.loginForm;
+            if (!validateId(form.id.value)) {
+                alert("유효한 아이디를 입력하세요.");
+                return false;
+            }
+            if (!validatePassword(form.pw.value)) {
+                alert("유효한 비밀번호를 입력하세요.");
+                return false;
+            }
+            if (!validateName(form.name.value)) {
+                alert("유효한 이름을 입력하세요.");
+                return false;
+            }
+            form.submit();
+            return true;
         }
-        if (!validatePassword(form.pw.value)) {
-            alert("유효한 비밀번호를 입력하세요.");
-            return false;
+
+        function validateId(id) {
+            return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,}$/.test(id);
         }
-        if (!validateName(form.name.value)) {
-            alert("유효한 이름을 입력하세요.");
-            return false;
+
+        function validatePassword(password) {
+            return /^(?=.*[a-z])(?=.*\d)[a-z\d]{6,}$/.test(password);
         }
-        form.submit();
-        return true;
-    }
 
-    function validateId(id) {
-        return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,}$/.test(id);
-    }
+        function validateName(name) {
+            return /^[가-힣a-zA-Z]{2,}$/.test(name);
+        }
 
-    function validatePassword(password) {
-        return /^(?=.*[a-z])(?=.*\d)[a-z\d]{6,}$/.test(password);
-    }
+        // 입력창 포커스 이벤트 처리
+        document.addEventListener("DOMContentLoaded", function () {
+            let inputs = document.querySelectorAll(".input-text input");
+            inputs.forEach(function (input) {
+                input.addEventListener("focus", function () {
+                    input.parentElement.querySelector(".input-placeholder").classList.add("focused");
+                });
 
-    function validateName(name) {
-        return /^[가-힣a-zA-Z]{2,}$/.test(name);
-    }
-</script>
+                input.addEventListener("blur", function () {
+                    if (input.value === "") {
+                        input.parentElement.querySelector(".input-placeholder").classList.remove("focused");
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="container">
@@ -131,16 +175,31 @@
                         <form name="loginForm" action="signInsert.do" method="post">
                             <table class="table">
                                 <tr>
-                                    <th><label for="id"><i class="fas fa-user icon"></i>아이디:</label></th>
-                                    <td><input type="text" class="form-control" id="id" name="id" required></td>
+                                    <th>
+                                        <div class="input-text">
+                                            <label for="id"><i class="fas fa-user icon"></i>아이디:</label>
+                                            <input type="text" class="form-control" id="id" name="id" required>
+                                            <div class="input-placeholder">아이디를 입력해주세요</div>
+                                        </div>
+                                    </th>
                                 </tr>
                                 <tr>
-                                    <th><label for="passwd"><i class="fas fa-lock icon"></i>패스워드:</label></th>
-                                    <td><input type="password" class="form-control" id="passwd" name="pw" required></td>
+                                    <th>
+                                        <div class="input-text">
+                                            <label for="passwd"><i class="fas fa-lock icon"></i>패스워드:</label>
+                                            <input type="password" class="form-control" id="passwd" name="pw" required>
+                                            <div class="input-placeholder">비밀번호를 입력해주세요</div>
+                                        </div>
+                                    </th>
                                 </tr>
                                 <tr>
-                                    <th><label for="name"><i class="fas fa-user icon"></i>성명:</label></th>
-                                    <td><input type="text" class="form-control" id="name" name="name" required></td>
+                                    <th>
+                                        <div class="input-text">
+                                            <label for="name"><i class="fas fa-user icon"></i>성명:</label>
+                                            <input type="text" class="form-control" id="name" name="name" required>
+                                            <div class="input-placeholder">성명을 입력해주세요</div>
+                                        </div>
+                                    </th>
                                 </tr>
                             </table>
                             <button type="button" class="btn btn-primary btn-block" onclick="checkLogin()">회원가입</button>
@@ -155,5 +214,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
-
 </html>
+
+
+
