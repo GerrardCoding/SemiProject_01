@@ -23,6 +23,8 @@
             margin: 0;
         }
 
+
+	
         .container {
             margin-top: 50px;
             width: 100%; /* 전체 길이를 100%로 조절 */
